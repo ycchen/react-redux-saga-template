@@ -53,3 +53,14 @@ The logic for your reducers (aka Redux logic) will all be contained with `/src/r
 [Official Redux Documentation](https://redux.js.org/)
 
 [Official Redux-Saga Documentation](https://redux-saga.js.org/)
+
+
+#### libraries
+
+```
+  `npm install --save redux react-redux redux-thunk redux-saga`
+  `npm install --save react-router-dom`
+  `npm install --save semantic-ui-react`
+  `npm install --save semantic-ui-css`
+  `npm install --save-dev redux-devtools-extension`
+```

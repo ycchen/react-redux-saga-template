@@ -1,33 +1,26 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Provider } from "react-redux";
-import configureStore from "./store";
-
-import CounterComponent from "./components/counter";
-
-const store = configureStore();
+import { Container } from 'semantic-ui-react';
+import { NavLink, BrowserRouter, Route } from 'react-router-dom'
+import ContactPage from './containers/ContactPage'
+import HomePage from './containers/HomePage'
+import AboutPage from './containers/AboutPage'
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to CRA-REDUX-SAGA-TEMPLATE</h1>
-          </header>
-          <p className="App-intro">
-            Try the 1 second delayed counter below. All powererd by
-            <b> Create-React-App, Redux, Redux-Saga</b>
-          </p>
-          <p>
-            Try clicking the Button below with the Redux Chrome Extension
-            Installed
-          </p>
-          <CounterComponent />
-        </div>
-      </Provider>
+      <BrowserRouter>
+        <Container>
+          <div className="ui three item menu">
+            <NavLink className="item" activeClassName="active" exact to="/">Home</NavLink>
+            <NavLink className="item" activeClassName="active" exact to="/about">About</NavLink>
+            <NavLink className="item" activeClassName="active" exact to="/contact">Contact</NavLink>
+          </div>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/contact" component={ContactPage} />
+        </Container>
+      </BrowserRouter>
     );
   }
 }
